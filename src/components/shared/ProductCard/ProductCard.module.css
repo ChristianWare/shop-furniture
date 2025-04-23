@@ -1,0 +1,52 @@
+/* components/shared/ProductCard/ProductCard.module.css */
+
+.card {
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ONLY the very first .card in its parent will get a red imageWrapper */
+.card:nth-child(1) .imageWrapper,
+.card:nth-child(3) .imageWrapper {
+  border-top-right-radius: 50%;
+}
+
+.card:nth-child(2) .imageWrapper,
+.card:nth-child(4) .imageWrapper {
+  border-top-left-radius: 50%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  background: var(--purple);
+}
+
+.image {
+  object-fit: contain;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+.info {
+  padding: 0.75rem;
+}
+.title {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+.price {
+  font-size: 0.875rem;
+  color: #555;
+  margin: 0;
+}

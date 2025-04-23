@@ -117,3 +117,61 @@ export async function shopifyAdminRequest(
     throw error;
   }
 }
+
+export type ShopifyProduct = {
+  id: string;
+  handle: string;
+  title: string;
+  featuredImage: { url: string; altText: string | null } | null;
+  priceRange: {
+    minVariantPrice: { amount: string; currencyCode: string };
+  };
+};
+
+/**
+ * Fetches up to `limit` products from the Shopify collection with the given handle.
+ */
+export async function getProductsByCollectionHandle(
+  handle: string,
+  limit = 4
+): Promise<ShopifyProduct[]> {
+  const storefront = createStorefrontClient();
+
+  const query = /* GraphQL */ `
+    query CollectionByHandle($handle: String!, $limit: Int!) {
+      collection(handle: $handle) {
+        products(first: $limit) {
+          edges {
+            node {
+              id
+              handle
+              title
+              featuredImage {
+                url
+                altText
+              }
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const { data, errors } = await storefront.query(query, { handle, limit });
+  if (errors) {
+    console.error("Shopify collection query errors:", errors);
+    return [];
+  }
+
+  return (
+    data.collection?.products.edges.map(
+      (edge: any) => edge.node as ShopifyProduct
+    ) || []
+  );
+}

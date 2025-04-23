@@ -93,7 +93,7 @@ input,
 textarea {
   hyphens: auto;
   font-size: 1.6rem;
-  line-height: 1.6em;
+  line-height: 1.2;
 }
 
 input:focus,

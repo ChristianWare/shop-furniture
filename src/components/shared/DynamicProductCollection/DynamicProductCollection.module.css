@@ -1,0 +1,22 @@
+.heading {
+  color: var(--blue);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--blueii);
+}
+
+@media screen and (max-width: 668px) {
+  .heading {
+    text-align: center;
+  }
+
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
