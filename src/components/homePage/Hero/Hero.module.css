@@ -95,10 +95,24 @@
 }
 
 @media screen and (max-width: 568px) {
-
-  .shineBoxContainer, .shineBoxContainerii {
+  .shineBoxContainer,
+  .shineBoxContainerii {
     display: none;
   }
 
+  .imgContainer {
+    border-radius: 0px;
+    height: 300px;
+  }
 
+  .img {
+    border-radius: 0px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+  }
+
+  .btnContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

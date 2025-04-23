@@ -81,9 +81,7 @@
 
 .answerContainer.show {
   max-height: 350px;
-  background-color: var(--white);
-  padding: 2rem;
-  margin-top: 3rem;
+  /* padding: 2rem; */
 }
 
 .headingArrowContainer {
@@ -115,12 +113,14 @@
 }
 
 .question {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .answer {
-  width: 100%;
+  width: 95%;
   color: var(--blueii);
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }
 
 @media screen and (max-width: 968px) {
