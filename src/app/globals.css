@@ -47,7 +47,6 @@ h5,
 h6,
 span {
   /* text-transform: uppercase; */
-  font-family: var(--Monumental);
   color: var(--blue);
 }
 
@@ -55,17 +54,20 @@ h1 {
   font-size: 8rem;
   line-height: 80%;
   letter-spacing: -2px;
+  font-family: var(--Monumental);
+  word-spacing: -8px;
 }
 
 h2 {
   font-size: 5rem;
   line-height: 85%;
   letter-spacing: -2px;
+  font-family: var(--Monumental);
+  word-spacing: -8px;
 }
 
 h3 {
   font-size: 4rem;
-  letter-spacing: -1px;
   line-height: 105%;
 }
 
