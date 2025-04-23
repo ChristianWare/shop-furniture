@@ -1,0 +1,140 @@
+.contentTop {
+  background-color: var(--purple);
+  display: grid;
+  grid-template-columns: 1.5fr 4.5fr;
+  padding: 2rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10rem;
+}
+
+.intro {
+  font-family: var(--interTight);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rightBottom {
+  margin-top: 3rem;
+}
+
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  min-height: 350px;
+}
+
+.name {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.cardRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.imgContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 1px solid var(--blue);
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.img {
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  object-fit: cover;
+  padding: 1rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navButton:focus {
+  outline: none;
+}
+
+.indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+}
+
+.activeIndicator {
+  background-color: var(--blueii);
+}
+
+@media screen and (max-width: 1068px) {
+  .card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .copy {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .contentTop {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .card {
+    gap: 5rem;
+  }
+
+  .copy {
+    width: 100%;
+  }
+}

@@ -43,15 +43,13 @@ const data = [
 ];
 
 export default function Discounts() {
-  // State to track which card is expanded
   const [expandedCard, setExpandedCard] = useState(null);
 
-  // Toggle function to expand/collapse a card
   const toggleCard = (id: any) => {
     if (expandedCard === id) {
-      setExpandedCard(null); // Collapse if it's already expanded
+      setExpandedCard(null);
     } else {
-      setExpandedCard(id); // Expand this card
+      setExpandedCard(id);
     }
   };
 
@@ -83,17 +81,19 @@ export default function Discounts() {
                       <h3 className={styles.subheading}>{x.title}</h3>
                     </div>
                     <div className={styles.cardRight}>
-                      <p className={styles.copy}>{x.copy}</p>
                       {expandedCard === x.id && (
-                        <div className={styles.imgContainer}>
-                          <Image
-                            src={Img}
-                            alt=''
-                            title=''
-                            fill
-                            className={styles.img}
-                          />
-                        </div>
+                        <>
+                          <p className={styles.copy}>{x.copy}</p>
+                          <div className={styles.imgContainer}>
+                            <Image
+                              src={Img}
+                              alt=''
+                              title=''
+                              fill
+                              className={styles.img}
+                            />
+                          </div>
+                        </>
                       )}
                     </div>
                     <div
