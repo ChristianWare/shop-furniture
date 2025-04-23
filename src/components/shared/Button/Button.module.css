@@ -41,6 +41,11 @@
   border: 1px solid var(--blue);
 }
 
+.secondary:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
 .navBtn {
   border-radius: 8px;
   line-height: 1;

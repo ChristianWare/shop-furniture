@@ -37,7 +37,7 @@
   border-radius: 500px;
   object-fit: cover;
   padding: 1rem;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--blueii);
 }
 
 .copy {
@@ -54,5 +54,42 @@
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+}
+
+@media screen and (max-width: 1268px) {
+  .shineBoxContainer {
+    right: 25%;
+  }
+
+  .shineBoxContainerii {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .shineBoxContainer {
+    right: 35%;
+  }
+
+  .shineBoxContainerii {
+    left: 35%;
+  }
+
+  .copy {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shineBoxContainer {
+    right: 45%;
+  }
+
+  .shineBoxContainerii {
+    left: 45%;
+  }
   
+  .copy {
+    width: 80%;
+  }
 }

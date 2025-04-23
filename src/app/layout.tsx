@@ -18,7 +18,7 @@ const Monumental = localFont({
 export const metadata: Metadata = {
   title: {
     template: `%s | Furniture`,
-    absolute: "Furniture",
+    absolute: "Furnitlure",
   },
   description: "We sell the best bikes known to man.",
 };
