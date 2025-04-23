@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+}
+
+.outline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12rem;
+  height: 12rem;
+  color: var(--blueii);
+}
+
+.solid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  color: var(--blueii);
+}

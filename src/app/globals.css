@@ -1,6 +1,7 @@
 :root {
   --gray: #b6c3cd;
   --blue: #3b466b;
+  --blueii: #7d89b5;
   --white: #ffffff;
 }
 
@@ -10,9 +11,9 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 120%;
-  /* scroll-behavior: smooth;
+  scroll-behavior: smooth;
   scroll-margin-top: 40px;
-  overscroll-behavior: none; */
+  overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
   font-family: var(--interTight);
 }
@@ -49,40 +50,35 @@ span {
 }
 
 h1 {
-  font-size: 11rem;
+  font-size: 8rem;
   line-height: 80%;
-  font-weight: 800;
-  letter-spacing: -4px;
+  letter-spacing: -2px;
 }
 
 h2 {
-  font-size: 9.6rem;
-  font-weight: 800;
+  font-size: 5.6rem;
   line-height: 85%;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
 }
 
 h3 {
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  font-size: 2.4rem;
+  font-size: 4rem;
+  letter-spacing: -1px;
   line-height: 105%;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 2.8rem;
 }
 
 h5 {
   font-size: 1.8rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: -1px;
 }
 
 h6 {
   font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: -1px;
 }
 
 button {
