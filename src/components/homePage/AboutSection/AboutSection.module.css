@@ -1,0 +1,136 @@
+/* ---------- layout ---------- */
+
+.container {
+  width: 100%;
+}
+
+.contentTop {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.intro {
+  font-family: var(--interTight);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rightTop {
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--blueii);
+}
+
+.textArea {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.textLeft,
+.textRight {
+  color: var(--blueii);
+}
+
+.textRight {
+  width: 80%;
+}
+
+.contentBottom {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr;
+  gap: 1rem;
+  margin-top: 5rem;
+}
+
+.imgContainer1,
+.imgContainer2,
+.imgContainer3 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.imgContainer1,
+.imgContainer3 {
+  aspect-ratio: 1 / 1;
+}
+
+.imgContainer2 {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--blue);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.imgContainer1 {
+  border-top-right-radius: 80%;
+}
+
+.imgContainer3 {
+  border-top-left-radius: 55%;
+}
+
+.img1,
+.img2,
+.img3 {
+  object-fit: cover;
+}
+
+.img2 {
+  padding: 1rem;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+@media screen and (max-width: 968px) {
+  .contentTop {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .intro,
+  .heading {
+    text-align: center;
+  }
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .textArea {
+    grid-template-columns: 1fr;
+  }
+
+  .textRight {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contentBottom {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .imgContainer1,
+  .imgContainer2,
+  .imgContainer3 {
+    height: 200px;
+    aspect-ratio: initial;
+    border-radius: 0%;
+    border: 1px solid var(--blueii);
+  }
+
+  .img1,
+  .img2,
+  .img3 {
+    object-fit: cover;
+    padding: 1rem;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+  }
+}

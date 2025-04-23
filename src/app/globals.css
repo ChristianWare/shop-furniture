@@ -48,6 +48,7 @@ h6,
 span {
   /* text-transform: uppercase; */
   font-family: var(--Monumental);
+  color: var(--blue);
 }
 
 h1 {
@@ -94,6 +95,7 @@ textarea {
   hyphens: auto;
   font-size: 1.6rem;
   line-height: 1.2;
+  color: var(--blue);
 }
 
 input:focus,

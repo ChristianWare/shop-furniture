@@ -1,3 +1,4 @@
+import AboutSection from "@/components/homePage/AboutSection/AboutSection";
 import Hero from "@/components/homePage/Hero/Hero";
 import Reasons from "@/components/homePage/Reasons/Reasons";
 import DynamicProductCollection from "@/components/shared/DynamicProductCollection/DynamicProductCollection";
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Reasons />
       <DynamicProductCollection title='Most recent' category='men' />
+      <AboutSection />
     </main>
   );
 }
