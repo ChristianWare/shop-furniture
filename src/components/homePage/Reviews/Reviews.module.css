@@ -45,8 +45,10 @@
 
 .cardRight {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 3rem;
   width: 100%;
 }
 
@@ -70,26 +72,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
-  padding: 0 1rem;
 }
 
-.navButton {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+.arrowBoxParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.arrowBox {
+  border: 1px solid var(--blueii);
   border-radius: 50%;
-  transition: background-color 0.3s ease;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
 }
 
-.navButton:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.arrowBox:hover {
+  background-color: var(--blue);
 }
 
-.navButton:focus {
-  outline: none;
+.icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--blueii);
 }
 
 .indicators {
@@ -121,6 +132,14 @@
 
   .copy {
     width: 100%;
+  }
+
+  .arrowBoxParent {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3rem;
+    gap: 5rem;
   }
 }
 

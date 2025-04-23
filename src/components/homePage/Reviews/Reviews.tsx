@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
@@ -8,6 +8,8 @@ import Img from "../../../../public/images/hero.jpg";
 import Img2 from "../../../../public/images/heroii.jpg";
 import Img3 from "../../../../public/images/heroiii.jpg";
 import Img4 from "../../../../public/images/heroiv.jpg";
+import Left from "../../../../public/icons/left.svg";
+import Right from "../../../../public/icons/right.svg";
 
 const data = [
   {
@@ -57,7 +59,6 @@ export default function Reviews() {
     );
   };
 
-  // Get the current review
   const currentReview = data[currentIndex];
 
   return (
@@ -89,41 +90,42 @@ export default function Reviews() {
                         className={styles.img}
                       />
                     </div>
+                    <div className={styles.indicators}>
+                      {data.map((_, index) => (
+                        <span
+                          key={index}
+                          className={`${styles.indicator} ${
+                            index === currentIndex ? styles.activeIndicator : ""
+                          }`}
+                          aria-label={
+                            index === currentIndex
+                              ? "Current review"
+                              : `Go to review ${index + 1}`
+                          }
+                          onClick={() => setCurrentIndex(index)}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Navigation buttons */}
                 <div className={styles.navigation}>
-                  <button
-                    className={styles.navButton}
-                    onClick={goToPrevious}
-                    aria-label='Previous review'
-                  >
-                    ⬅️
-                  </button>
-                  <div className={styles.indicators}>
-                    {data.map((_, index) => (
-                      <span
-                        key={index}
-                        className={`${styles.indicator} ${
-                          index === currentIndex ? styles.activeIndicator : ""
-                        }`}
-                        aria-label={
-                          index === currentIndex
-                            ? "Current review"
-                            : `Go to review ${index + 1}`
-                        }
-                        onClick={() => setCurrentIndex(index)}
+                  <div className={styles.arrowBoxParent}>
+                    <div className={styles.arrowBox}>
+                      <Left
+                        className={styles.icon}
+                        onClick={goToPrevious}
+                        aria-label='Previous review'
                       />
-                    ))}
+                    </div>
+                    <div className={styles.arrowBox}>
+                      <Right
+                        onClick={goToNext}
+                        className={styles.icon}
+                        aria-label='Next review'
+                      />
+                    </div>
                   </div>
-                  <button
-                    className={styles.navButton}
-                    onClick={goToNext}
-                    aria-label='Next review'
-                  >
-                    ➡️
-                  </button>
                 </div>
               </div>
             </div>
