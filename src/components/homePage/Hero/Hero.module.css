@@ -88,8 +88,17 @@
   .shineBoxContainerii {
     left: 45%;
   }
-  
+
   .copy {
-    width: 80%;
+    width: 100%;
   }
+}
+
+@media screen and (max-width: 568px) {
+
+  .shineBoxContainer, .shineBoxContainerii {
+    display: none;
+  }
+
+
 }
