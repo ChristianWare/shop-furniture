@@ -15,27 +15,33 @@ export default async function Categories() {
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.content}>
-          <h2 className={styles.heading}>Categories</h2>
+          <div className={styles.top}>
+            <h2 className={styles.heading}>Categories</h2>
+          </div>
           <div className={styles.bottom}>
             {collections.map((col) => (
               <Link
-                key={col.id}
                 href={`/collections/${col.handle}`}
+                key={col.id}
                 className={styles.card}
               >
-                {col.image?.url && (
-                  <div className={styles.imageWrapper}>
+                <h3 className={styles.cardTitle}>{col.title}</h3>
+
+                {col.image ? (
+                  <div className={styles.imgContainer}>
                     <Image
                       src={col.image.url}
                       alt={col.image.altText || col.title}
-                      width={300}
-                      height={200}
-                      className={styles.image}
-                      sizes='(max-width: 600px) 100vw, 300px'
+                      fill
+                      className={styles.img}
                     />
                   </div>
+                ) : (
+                  <div className={styles.imgPlaceholder}>
+                    {/* optional placeholder if no image */}
+                    <span>No Image</span>
+                  </div>
                 )}
-                <h3 className={styles.cardTitle}>{col.title}</h3>
               </Link>
             ))}
           </div>
