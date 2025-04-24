@@ -1,7 +1,9 @@
+.container {
+  background-color: var(--purple);
+}
+
 .content {
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border: 1px solid var(--blueii);
+  border: 1px solid var(--blue);
   padding: 3rem;
 }
 
@@ -41,7 +43,7 @@
   color: var(--black);
   width: 100%;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--blueii);
+  border-bottom: 1px solid var(--blue);
   opacity: 0.8;
   font-family: var(--suisse);
   text-transform: capitalize;

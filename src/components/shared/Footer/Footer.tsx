@@ -65,9 +65,9 @@ export default function Footer() {
       <div className={styles.parent}>
         <LayoutWrapper>
           <div className={styles.content}>
-            <div className={styles.logoMobile}>Logo Here</div>
+            <div className={styles.logoMobile}>L</div>
             <div className={styles.top}>
-              <div className={styles.box}>Logo Here</div>
+              <div className={styles.box1}>Logo Here</div>
               <div className={styles.box}>
                 {footer.map((x) => (
                   <div key={x.id}>
@@ -116,6 +116,7 @@ export default function Footer() {
                 </form>
               </div>
             </div>
+          </div>
             <div className={styles.bottom}>
               <div className={styles.left}>
                 <small className={styles.small1}>
@@ -156,7 +157,6 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
         </LayoutWrapper>
       </div>
     </footer>
