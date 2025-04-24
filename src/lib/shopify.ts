@@ -175,3 +175,47 @@ export async function getProductsByCollectionHandle(
     ) || []
   );
 }
+
+export type ShopifyCollection = {
+  id: string;
+  title: string;
+  handle: string;
+};
+
+/**
+ * Fetches up to `limit` collections (id, title, handle).
+ */
+
+export async function getAllCollections(
+  limit = 20
+): Promise<ShopifyCollection[]> {
+  const storefront = createStorefrontClient();
+
+  const query = /* GraphQL */ `
+    query AllCollections($limit: Int!) {
+      collections(first: $limit) {
+        edges {
+          node {
+            id
+            title
+            handle
+          }
+        }
+      }
+    }
+  `;
+
+  const { data, errors } = await storefront.query(query, { limit });
+  if (errors) {
+    console.error("Error fetching all collections:", errors);
+    return [];
+  }
+
+  return (
+    data.collections.edges.map((edge: any) => ({
+      id: edge.node.id,
+      title: edge.node.title,
+      handle: edge.node.handle,
+    })) || []
+  );
+}

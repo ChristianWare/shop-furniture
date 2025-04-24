@@ -1,4 +1,5 @@
 import AboutSection from "@/components/homePage/AboutSection/AboutSection";
+import Categories from "@/components/homePage/Categories/Categories";
 import Discounts from "@/components/homePage/Discounts/Discounts";
 import Hero from "@/components/homePage/Hero/Hero";
 import Reasons from "@/components/homePage/Reasons/Reasons";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Categories />
       <Reasons />
       <DynamicProductCollection title='Most recent' category='men' />
       <AboutSection />
