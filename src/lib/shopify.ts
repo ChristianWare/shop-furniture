@@ -180,12 +180,15 @@ export type ShopifyCollection = {
   id: string;
   title: string;
   handle: string;
+  image: {
+    url: string;
+    altText: string | null;
+  } | null;
 };
 
 /**
- * Fetches up to `limit` collections (id, title, handle).
+ * Fetches up to `limit` collections (id, title, handle, image).
  */
-
 export async function getAllCollections(
   limit = 20
 ): Promise<ShopifyCollection[]> {
@@ -199,6 +202,10 @@ export async function getAllCollections(
             id
             title
             handle
+            image {
+              url
+              altText
+            }
           }
         }
       }
@@ -216,6 +223,12 @@ export async function getAllCollections(
       id: edge.node.id,
       title: edge.node.title,
       handle: edge.node.handle,
+      image: edge.node.image
+        ? {
+            url: edge.node.image.url,
+            altText: edge.node.image.altText,
+          }
+        : null,
     })) || []
   );
 }
