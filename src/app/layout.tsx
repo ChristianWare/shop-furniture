@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import Nav from "@/components/shared/Nav/Nav";
+import AuthProvider from "@/providers/AuthProvider";
 
 const interTight = Inter_Tight({
   variable: "--interTight",
@@ -17,10 +19,10 @@ const Monumental = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | Furniture`,
+    template: `%s | Furnitlure`,
     absolute: "Furnitlure",
   },
-  description: "We sell the best bikes known to man.",
+  description: "We sell the best furniture known to man.",
 };
 
 export default function RootLayout({
@@ -31,6 +33,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${interTight.variable} ${Monumental.variable}`}>
+        <AuthProvider>
+          <Nav />
+        </AuthProvider>
         {children}
       </body>
     </html>
