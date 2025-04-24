@@ -25,7 +25,6 @@ export default async function Categories() {
                 key={col.id}
                 className={styles.card}
               >
-                <h3 className={styles.cardTitle}>{col.title}</h3>
 
                 {col.image ? (
                   <div className={styles.imgContainer}>
@@ -42,6 +41,7 @@ export default async function Categories() {
                     <span>No Image</span>
                   </div>
                 )}
+                <h3 className={styles.cardTitle}>{col.title}</h3>
               </Link>
             ))}
           </div>
