@@ -2,6 +2,7 @@ import AboutSection from "@/components/homePage/AboutSection/AboutSection";
 import Categories from "@/components/homePage/Categories/Categories";
 import Discounts from "@/components/homePage/Discounts/Discounts";
 import Hero from "@/components/homePage/Hero/Hero";
+import MeetUs from "@/components/homePage/MeetUs/MeetUs";
 import Reasons from "@/components/homePage/Reasons/Reasons";
 import Reviews from "@/components/homePage/Reviews/Reviews";
 // import DynamicProductCollection from "@/components/shared/DynamicProductCollection/DynamicProductCollection";
@@ -17,6 +18,7 @@ export default function Home() {
       <Reasons />
       {/* <DynamicProductCollection title='On sale' category='sale' /> */}
       <AboutSection />
+      <MeetUs />
       <Discounts />
       <Reviews />
       <Shipping />
