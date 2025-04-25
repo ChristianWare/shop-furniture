@@ -1,5 +1,3 @@
-// components/shared/Categories/Categories.tsx
-
 import Image from "next/image";
 import Link from "next/link";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
