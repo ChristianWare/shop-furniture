@@ -1,3 +1,7 @@
+.heading {
+  text-align: center;
+}
+
 .topContent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -31,4 +35,17 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .topContent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .btnContainer {
+    display: grid;
+    width: 100%;
+  }
 }

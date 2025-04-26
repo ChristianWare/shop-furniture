@@ -3,6 +3,7 @@
 import styles from "./Nav.module.css";
 import { useState } from "react";
 import Link from "next/link";
+import Shine from "../../../../public/icons/shineSolid.svg";
 // import User from "../../../../public/icons/user.svg";
 
 const navItems = [
@@ -14,7 +15,6 @@ const navItems = [
 ];
 
 export default function Nav() {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleHamburger = () => setIsOpen((v) => !v);
@@ -25,7 +25,7 @@ export default function Nav() {
       {/* mobile logo */}
       <div className={styles.logoContainerMobile}>
         {/* <Logo /> */}
-        Furnitlure
+        Furnitlure <Shine className={styles.shine} />
       </div>
 
       <nav className={styles.navbar}>
@@ -37,7 +37,7 @@ export default function Nav() {
         >
           <div className={styles.logoContainer}>
             {/* <Logo /> */}
-            Furnitlure
+            Furnitlure <Shine className={styles.shine} />
           </div>
 
           <ul
@@ -57,7 +57,6 @@ export default function Nav() {
         </div>
 
         {/* ------------- avatar / auth dropdown ------------- */}
-        
 
         {/* ------------- hamburger button ------------- */}
         <div

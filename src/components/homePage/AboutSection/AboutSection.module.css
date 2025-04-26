@@ -133,4 +133,12 @@
     border-top-left-radius: 0%;
     border-top-right-radius: 0%;
   }
+
+    .imgContainer1, .img1 {
+      border-top-right-radius: 50px;
+    }
+    
+    .imgContainer3, .img3 {
+      border-bottom-left-radius: 50px;
+    }
 }

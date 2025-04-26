@@ -68,10 +68,19 @@
   border-right: 1px solid var(--blue);
   padding: 8px 12px;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .logoContainerMobile {
   display: none;
+}
+
+.shine {
+  width: 2rem;
+  height: 2rem;
 }
 
 .navItems,
@@ -201,7 +210,7 @@
   }
 
   .logoContainerMobile {
-    display: block;
+    display: flex;
   }
 
   .navMenu {
