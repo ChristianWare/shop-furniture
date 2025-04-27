@@ -4,9 +4,9 @@
 
 .topContent {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border: 1px solid var(--blueii);
+  grid-template-columns: repeat(1, 1fr);
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .tcLeft,
@@ -15,11 +15,13 @@
 }
 
 .tcLeft {
-  border-right: 1px solid var(--blueii);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video {
-  width: 100%;
+  width: calc(600px - 5vw);
   max-height: 600px;
   object-fit: cover;
   border-bottom-left-radius: 50%;
@@ -39,6 +41,7 @@
 
 .copy {
   text-align: center;
+  width: 60%;
 }
 
 .videoii {
@@ -47,7 +50,6 @@
   object-fit: cover;
   padding: 1rem;
   border: 1px solid var(--blueii);
-  border-top: none;
   aspect-ratio: 1 / 1;
 }
 
@@ -56,12 +58,21 @@
   grid-template-columns: 1fr 2fr 2fr;
   padding: 2rem;
   border: 1px solid var(--blueii);
-  border-top: none;
-  margin-top: -.5rem;
 }
 
 .bBottom .copy {
   width: 90%;
+}
+
+@media screen and (max-width: 1068px) {
+  .video {
+    width: calc(500px - 5vw);
+    max-height: 500px;
+  }
+
+  .copy {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -75,11 +86,25 @@
     justify-content: center;
     width: 100%;
   }
+
+  .video {
+    width: calc(400px - 5vw);
+    max-height: 400px;
+  }
+
+  .copy {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 568px) {
   .btnContainer {
     display: grid;
     width: 100%;
+  }
+
+  .video {
+    width: calc(250px - 5vw);
+    max-height: 250px;
   }
 }
