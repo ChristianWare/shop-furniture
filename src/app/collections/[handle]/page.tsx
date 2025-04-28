@@ -1,19 +1,28 @@
+/* app/collections/[handle]/page.tsx
+   Collection detail page – complete, working version */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 
-import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./CollectionsPage.module.css";
-import { createStorefrontClient } from "@/lib/shopify";
-import Link from "next/link";
+import LayoutWrapper from "@/components/shared/LayoutWrapper";
+import { createStorefrontClient, ShopifyProduct } from "@/lib/shopify";
+import ProductCard from "@/components/shared/ProductCard/ProductCard";
 
-// Because this is in the `app/collections/[handle]/page.tsx`,
-// Next.js will parse the route param as `params.handle`.
+interface CollectionData {
+  id: string;
+  title: string;
+  descriptionHtml: string | null;
+  products: ShopifyProduct[];
+}
+
+// ────────────────────────────────────────────────────────────
+// Page component
+// ────────────────────────────────────────────────────────────
 export default async function CollectionPage({
   params,
 }: {
   params: { handle: string };
 }) {
-  // 1. Fetch collection data
   const collectionData = await getCollectionByHandle(params.handle);
 
   if (!collectionData) {
@@ -25,10 +34,12 @@ export default async function CollectionPage({
   return (
     <main className={styles.container}>
       <LayoutWrapper>
+        {/* ── hero block ─────────────────────────────────────── */}
         <div className={styles.top}>
           <div className={styles.t1}>
             <h1 className={styles.heading}>{title}</h1>
           </div>
+
           <div className={styles.t2}>
             {descriptionHtml && (
               <div
@@ -37,33 +48,17 @@ export default async function CollectionPage({
               />
             )}
           </div>
+
           <div className={styles.t3}>filter button here</div>
         </div>
 
+        {/* ── products grid ─────────────────────────────────── */}
         {products.length === 0 ? (
-          <h1>No products found in this collection.</h1>
+          <h1 className={styles.heading}>Products coming soon.</h1>
         ) : (
-          <div>
-            {products.map((product: any) => (
-              <div key={product.id}>
-                {product.images?.[0] && (
-                  <img
-                    src={product.images[0].url}
-                    alt={product.images[0].altText || product.title}
-                    className=''
-                  />
-                )}
-
-                <h2>{product.title}</h2>
-                {product.variants?.map((variant: any) => (
-                  <p key={variant.id}>
-                    {variant.title} -{" "}
-                    {`${variant.price.amount} ${variant.price.currencyCode}`}
-                  </p>
-                ))}
-
-                <Link href={`/products/${product.handle}`}>View Product</Link>
-              </div>
+          <div className={styles.bottom}>
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         )}
@@ -72,23 +67,41 @@ export default async function CollectionPage({
   );
 }
 
-// -----------------------------------------
-// Helper to fetch a collection by handle
-// -----------------------------------------
-async function getCollectionByHandle(handle: string) {
+// ────────────────────────────────────────────────────────────
+// Helper: fetch collection by handle
+// ────────────────────────────────────────────────────────────
+async function getCollectionByHandle(
+  handle: string
+): Promise<CollectionData | null> {
   const client = createStorefrontClient();
-  const query = `
+
+  const query = /* GraphQL */ `
     query collectionByHandle($handle: String!) {
       collection(handle: $handle) {
         id
         title
-        descriptionHtml 
+        descriptionHtml
+
         products(first: 12) {
           edges {
             node {
               id
               title
               handle
+
+              # ── the fields ProductCard needs ───────────────
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              featuredImage {
+                url
+                altText
+              }
+
+              # ── still grabbing images + variants for later ─
               images(first: 1) {
                 edges {
                   node {
@@ -116,37 +129,34 @@ async function getCollectionByHandle(handle: string) {
     }
   `;
 
-  const variables = { handle };
-
   try {
-    const response = await client.query(query, variables);
-    const collection = response?.data?.collection;
+    const { data } = await client.query(query, { handle });
+    const collection = data?.collection;
+    if (!collection) return null;
 
-    if (!collection) {
-      return null;
-    }
-
-    // Transform the product edges
-    const products = collection.products.edges.map(({ node }: any) => {
-      const variants = node.variants.edges.map(({ node: variant }: any) => ({
-        id: variant.id,
-        title: variant.title,
-        price: variant.price,
-      }));
-
-      const images = node.images?.edges?.map((imgEdge: any) => ({
-        url: imgEdge.node.url,
-        altText: imgEdge.node.altText,
-      }));
-
-      return {
+    const products: ShopifyProduct[] = collection.products.edges.map(
+      ({ node }: any) => ({
         id: node.id,
         title: node.title,
         handle: node.handle,
-        variants,
-        images: images ?? [],
-      };
-    });
+
+        // ── required by <ProductCard /> ─────────────────────
+        priceRange: node.priceRange,
+        featuredImage: node.featuredImage,
+
+        // ── optional extras you may use elsewhere ───────────
+        variants: node.variants.edges.map(({ node: v }: any) => ({
+          id: v.id,
+          title: v.title,
+          price: v.price,
+        })),
+        images:
+          node.images?.edges?.map(({ node: img }: any) => ({
+            url: img.url,
+            altText: img.altText,
+          })) ?? [],
+      })
+    );
 
     return {
       id: collection.id,
@@ -154,8 +164,8 @@ async function getCollectionByHandle(handle: string) {
       descriptionHtml: collection.descriptionHtml,
       products,
     };
-  } catch (error) {
-    console.error("Error fetching collection by handle:", error);
+  } catch (err) {
+    console.error("Error fetching collection by handle:", err);
     return null;
   }
 }

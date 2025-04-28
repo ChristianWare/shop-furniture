@@ -1,8 +1,9 @@
+import styles from "./ProductCard.module.css";
 import Link from "next/link";
 import Image from "next/image";
 // import Img1 from "../../../../public/images/product.png";
-import styles from "./ProductCard.module.css";
 import { ShopifyProduct } from "@/lib/shopify";
+// import ShopifyImage from "../ShopifyImage/ShopifyImage";
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -26,6 +27,13 @@ export default function ProductCard({ product }: ProductCardProps) {
             className={styles.image}
             sizes='(max-width: 600px) 100vw, 300px'
           />
+          // <ShopifyImage
+          //   src={product.featuredImage.url}
+          //   alt={product.featuredImage.altText || product.title}
+          //   scaletofill
+          //   width={300}
+          //   height={300}
+          // />
         ) : (
           <div className={styles.placeholder}>No Image</div>
         )}
