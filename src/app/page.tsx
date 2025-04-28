@@ -5,7 +5,7 @@ import Hero from "@/components/homePage/Hero/Hero";
 import MeetUs from "@/components/homePage/MeetUs/MeetUs";
 import Reasons from "@/components/homePage/Reasons/Reasons";
 import Reviews from "@/components/homePage/Reviews/Reviews";
-// import DynamicProductCollection from "@/components/shared/DynamicProductCollection/DynamicProductCollection";
+import DynamicProductCollection from "@/components/shared/DynamicProductCollection/DynamicProductCollection";
 import Faq from "@/components/shared/Faq/Faq";
 import Footer from "@/components/shared/Footer/Footer";
 import Shipping from "@/components/shared/Shipping/Shipping";
@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <Categories />
       <Reasons />
-      {/* <DynamicProductCollection title='On sale' category='sale' /> */}
+      <DynamicProductCollection title='furniture' category='furniture' />
       <AboutSection />
       <MeetUs />
       <Discounts />

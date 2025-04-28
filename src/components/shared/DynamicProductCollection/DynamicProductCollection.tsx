@@ -1,19 +1,14 @@
-// components/shared/DynamicProductCollection/DynamicProductCollection.tsx
 import Link from "next/link";
 import styles from "./DynamicProductCollection.module.css";
 import { getProductsByCollectionHandle, ShopifyProduct } from "@/lib/shopify";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import Product from "../Product/Product";
-// import Arrow from "../../../../public/icons/arrow.svg";
 import FalseButton from "@/components/shared/FalseButton/FalseButton";
 
 interface Props {
   title: string;
-  /** Shopify collection handle */
   category: string;
-  /** reverse layout? */
-  reverse?: boolean;
 }
 
 /** Revalidate at most once per hour (ISR) */
@@ -22,7 +17,6 @@ export const revalidate = 60;
 export default async function DynamicProductCollection({
   title,
   category,
-  reverse = false,
 }: Props) {
   // fetch up to 6 products
   const products: ShopifyProduct[] = await getProductsByCollectionHandle(
@@ -62,9 +56,7 @@ export default async function DynamicProductCollection({
 
           <Link
             href={`/collections/${category}`}
-            className={`${styles.viewAllParent} ${
-              reverse ? styles.reverse : ""
-            }`}
+            className={styles.viewAllParent}
           >
             <div className={styles.viewAllTop}>
               <span className={styles.viewAllTitle}>View All</span>

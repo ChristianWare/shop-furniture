@@ -12,7 +12,7 @@
 .t3 {
   border: 1px solid var(--blueii);
   border-right: none;
-  padding: 5rem;
+  padding: 10rem 5rem;
 }
 
 .t3 {
@@ -53,5 +53,11 @@
   .t2 {
     border-right: 1px solid var(--blueii);
     border-bottom: none;
+  }
+
+  .t1,
+  .t2,
+  .t3 {
+    padding: 5rem;
   }
 }

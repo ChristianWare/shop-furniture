@@ -1,8 +1,6 @@
-// components/shared/ProductCard/ProductCard.tsx
-
 import Link from "next/link";
 import Image from "next/image";
-import Img1 from "../../../../public/images/product.png";
+// import Img1 from "../../../../public/images/product.png";
 import styles from "./ProductCard.module.css";
 import { ShopifyProduct } from "@/lib/shopify";
 
@@ -22,9 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className={styles.imageWrapper}>
         {product.featuredImage?.url ? (
           <Image
-            src={
-              Img1
-            } /* swap back to product.featuredImage.url once you’ve added cdn.shopify.com to next.config.js */
+            src={product.featuredImage.url}
             alt={product.featuredImage.altText || product.title}
             fill
             className={styles.image}

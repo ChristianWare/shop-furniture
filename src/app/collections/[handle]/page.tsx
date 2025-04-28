@@ -40,7 +40,7 @@ export default async function CollectionPage({
           <div className={styles.t3}>filter button here</div>
         </div>
 
-        {/* {products.length === 0 ? (
+        {products.length === 0 ? (
           <h1>No products found in this collection.</h1>
         ) : (
           <div>
@@ -66,7 +66,7 @@ export default async function CollectionPage({
               </div>
             ))}
           </div>
-        )} */}
+        )}
       </LayoutWrapper>
     </main>
   );
