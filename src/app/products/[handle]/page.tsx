@@ -5,7 +5,7 @@ import { createStorefrontClient } from "@/lib/shopify";
 import { auth } from "@/auth";
 import ReviewsList from "@/components/productPage/ReviewsList";
 // import ReviewForm from "@/components/productPage/ReviewForm";
-// import ProductVariantSelector from "@/components/productPage/ProductVariantSelector";
+import ProductVariantSelector from "@/components/productPage/ProductVariantSelector";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
@@ -167,7 +167,7 @@ export default async function ProductDetailPage({
             </div>
             <div className={styles.variantsContainer}>
               Variants Here
-              {/* <ProductVariantSelector product={product} /> */}
+              <ProductVariantSelector product={product} />
             </div>
             <div className={styles.descriptionContainer}>
               <div

@@ -1,8 +1,7 @@
-// src/components/ProductVariantSelector.tsx
 "use client";
 
 import { useState } from "react";
-import { useCart } from "@/providers/CartProvider"; // or your custom addToCart logic
+import { useCart } from "@/providers/CartProvider"; 
 
 interface ProductVariantSelectorProps {
   product: {
