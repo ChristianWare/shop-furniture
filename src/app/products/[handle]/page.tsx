@@ -4,7 +4,7 @@ import styles from "./ProductDetailPage.module.css";
 import { createStorefrontClient } from "@/lib/shopify";
 import { auth } from "@/auth";
 import ReviewsList from "@/components/productPage/ReviewsList";
-// import ReviewForm from "@/components/productPage/ReviewForm";
+import ReviewForm from "@/components/productPage/ReviewForm";
 import ProductVariantSelector from "@/components/productPage/ProductVariantSelector";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -95,11 +95,11 @@ export default async function ProductDetailPage({
   const reviews = reviewsData.reviews || [];
 
   // 4) Compute average rating
-  // const averageRating =
-  //   reviews.length > 0
-  //     ? reviews.reduce((sum: number, r: any) => sum + r.rating, 0) /
-  //       reviews.length
-  //     : 0;
+  const averageRating =
+    reviews.length > 0
+      ? reviews.reduce((sum: number, r: any) => sum + r.rating, 0) /
+        reviews.length
+      : 0;
 
   // 5) Decide if we show the <ReviewForm> or not
   //    Conditions: user logged in, user purchased product, user has not already reviewed
@@ -181,13 +181,12 @@ export default async function ProductDetailPage({
         {/* Variant + Add to Cart */}
 
         {/* Reviews */}
-        {/* <p className='mt-4'>Average Rating: {averageRating.toFixed(1)} / 5</p> */}
+        <p className='mt-4'>Average Rating: {averageRating.toFixed(1)} / 5</p>
         <ReviewsList reviews={reviews} />
 
         {/* Show the form only if canShowReviewForm is true */}
         {canShowReviewForm ? (
-          // <ReviewForm productId={product.id} />
-          "hey"
+          <ReviewForm productId={product.id} />
         ) : (
           // Otherwise, display a message (why the user can't review)
           <h3 className='mt-4 text-sm text-red-600'>{reasonMessage}</h3>
