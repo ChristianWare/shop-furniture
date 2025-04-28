@@ -4,6 +4,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Nav from "@/components/shared/Nav/Nav";
 import AuthProvider from "@/providers/AuthProvider";
+import { CartProvider } from "@/providers/CartProvider";
 
 const interTight = Inter_Tight({
   variable: "--interTight",
@@ -33,9 +34,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${interTight.variable} ${Monumental.variable}`}>
-        <AuthProvider>
-          <Nav />
-        </AuthProvider>
+        <CartProvider>
+          <AuthProvider>
+            <Nav />
+          </AuthProvider>
+        </CartProvider>
         {children}
       </body>
     </html>
