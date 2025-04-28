@@ -1,7 +1,7 @@
+import styles from "./Categories.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
-import styles from "./Categories.module.css";
 import { getAllCollections, ShopifyCollection } from "@/lib/shopify";
 
 export const revalidate = 3600; // ISR

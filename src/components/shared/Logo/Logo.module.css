@@ -1,0 +1,19 @@
+.logoContainer {
+  font-family: var(--interTight);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+  border-right: 1px solid var(--blue);
+  padding: 8px 12px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.shine {
+  width: 2rem;
+  height: 2rem;
+}

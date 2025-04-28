@@ -23,10 +23,10 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       {/* mobile logo */}
-      <div className={styles.logoContainerMobile}>
-        {/* <Logo /> */}
+
+      <Link href='/' className={styles.logoContainerMobile}>
         Furnitlure <Shine className={styles.shine} />
-      </div>
+      </Link>
 
       <nav className={styles.navbar}>
         {/* ------------- mobile / desktop nav links ------------- */}
@@ -35,10 +35,9 @@ export default function Nav() {
             !isOpen ? styles.navMenu : `${styles.navMenu} ${styles.active}`
           }
         >
-          <div className={styles.logoContainer}>
-            {/* <Logo /> */}
+          <Link href='/' className={styles.logoContainer}>
             Furnitlure <Shine className={styles.shine} />
-          </div>
+          </Link>
 
           <ul
             className={styles.navItems}
