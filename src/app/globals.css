@@ -1,4 +1,5 @@
 :root {
+  --black: #1f1f1f;
   --gray: #b6c3cd;
   --blue: #3b466b;
   --blueii: #7d89b5;
@@ -53,7 +54,7 @@ span {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 80%;
   letter-spacing: -2px;
   font-family: var(--Monumental);
@@ -179,3 +180,13 @@ textarea:focus {
     line-height: 120%;
   }
 } */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -99999;
+  pointer-events: none;
+  background: url("/images/background2.jpg") repeat;
+  opacity: 0.20;
+}

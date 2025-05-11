@@ -2,12 +2,6 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 3rem;
-  padding-top: 5rem;
-}
-
-.heading {
-  color: var(--blue);
-  text-align: center;
 }
 
 .bottom {
@@ -28,10 +22,23 @@
   left: 20%;
 }
 
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  border-radius: 500px;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  background-color: var(--black);
+  opacity: 0.5;
+  z-index: 3;
+}
+
 .imgContainer {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 360px;
 }
 
 .img {
@@ -41,21 +48,39 @@
   border: 1px solid var(--blueii);
 }
 
+.contentChildren {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  z-index: 5;
+}
+
+.heading {
+  color: var(--tan);
+  text-align: center;
+}
+
 .copy {
   width: 50%;
-  color: var(--blue);
+  color: var(--tan);
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.btnContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
+/* .btnContainer {
+  display: grid;
+  width: 20%;
+} */
+
 
 @media screen and (max-width: 1268px) {
   .shineBoxContainer {
@@ -68,13 +93,8 @@
 }
 
 @media screen and (max-width: 968px) {
-  .shineBoxContainer {
-    right: 35%;
-  }
 
-  .shineBoxContainerii {
-    left: 35%;
-  }
+
 
   .copy {
     width: 60%;
@@ -95,25 +115,25 @@
   }
 }
 
-@media screen and (max-width: 568px) {
-  .shineBoxContainer,
-  .shineBoxContainerii {
-    display: none;
-  }
-
+@media screen and (max-width: 768px) {
   .imgContainer {
     border-radius: 0px;
-    height: 300px;
+    height: 375px;
   }
 
-  .img {
+  .img, .overlay {
     border-radius: 0px;
     border-top-right-radius: 70px;
-    border-bottom-left-radius: 70px;
   }
 
-  .btnContainer {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  .copy {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .imgContainer {
+    border-radius: 0px;
+    height: 90vh;
   }
 }

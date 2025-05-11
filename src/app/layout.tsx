@@ -9,7 +9,7 @@ import { CartProvider } from "@/providers/CartProvider";
 const interTight = Inter_Tight({
   variable: "--interTight",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "800", "900"],
 });
 
 const Monumental = localFont({
